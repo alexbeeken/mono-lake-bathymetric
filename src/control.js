@@ -7,7 +7,7 @@ class Control extends Component {
   constructor() {
     super()
     this.state = {
-      defaultValue: 63840,
+      defaultValue: 63850,
       min: 63590,
       max: 63850
     };
@@ -19,15 +19,24 @@ class Control extends Component {
     })
   }
 
+  currentValue() {
+    return this.state.value || this.state.defaultValue
+  }
+
+  showValue() {
+    let number = this.currentValue() / 10.0
+    return number.toFixed(1) + ' feet'
+  }
+
   render() {
     return (
       <div>
-        <div className='navbar navbar-default navbar-fixed-top'>
+        <div className='header'>
           <div className='main-title'>
             <h1>Mono Lake Bathymetric</h1>
           </div>
           <div className='years-range'>
-            <h3>{this.state.value}</h3>
+            <h3>{this.showValue()}</h3>
           </div>
           <div className='slider'>
             <Slider
@@ -40,8 +49,8 @@ class Control extends Component {
             />
           </div>
         </div>
-        <div>
-          <LakeOutline level={this.state.value}/>
+        <div className="lake">
+          <LakeOutline level={this.currentValue()}/>
         </div>
       </div>
     );

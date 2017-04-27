@@ -4,7 +4,6 @@ import ReactSVG from 'react-svg'
 
 class LakeOutline extends Component {
   svgForLevel(level) {
-    console.log(levels[level])
     return levels[level]
   }
 
@@ -13,6 +12,7 @@ class LakeOutline extends Component {
       <div>
         <ReactSVG
           path={this.svgForLevel(this.props.level)}
+          style={{width: 500, height: 500}}
         />
       </div>
     );
