@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Slider from 'rc-slider'
 import LakeOutline from './lake-outline';
 import 'rc-slider/assets/index.css';
+import Dimensions from 'react-dimensions'
 
 class Control extends Component {
   constructor() {
@@ -50,11 +51,13 @@ class Control extends Component {
           </div>
         </div>
         <div className="lake">
-          <LakeOutline level={this.currentValue()}/>
+          <LakeOutline
+            level={this.currentValue()}
+            width={this.props.containerWidth}/>
         </div>
       </div>
     );
   }
 };
 
-export default Control;
+export default Dimensions()(Control);

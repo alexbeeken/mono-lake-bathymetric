@@ -7,12 +7,19 @@ class LakeOutline extends Component {
     return levels[level]
   }
 
+  style() {
+    return {
+      width: this.props.width,
+      height: 500
+    }
+  }
+
   render() {
     return (
       <div>
         <ReactSVG
           path={this.svgForLevel(this.props.level)}
-          style={{width: 500, height: 500}}
+          style={this.style()}
         />
       </div>
     );
