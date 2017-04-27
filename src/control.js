@@ -34,10 +34,10 @@ class Control extends Component {
       <div>
         <div className='header'>
           <div className='main-title'>
-            <h1>Mono Lake Bathymetric</h1>
+            <h3>Mono Lake Bathymetric Shape</h3>
           </div>
           <div className='years-range'>
-            <h3>{this.showValue()}</h3>
+            <h5>{this.showValue()}</h5>
           </div>
           <div className='slider'>
             <Slider
@@ -54,6 +54,9 @@ class Control extends Component {
           <LakeOutline
             level={this.currentValue()}
             width={this.props.containerWidth}/>
+        </div>
+        <div className='footer'>
+          <a href='https://pubs.usgs.gov/mf/2002/2393/'>*source</a>
         </div>
       </div>
     );
